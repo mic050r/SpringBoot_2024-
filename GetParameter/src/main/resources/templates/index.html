@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 th:text="'Welcome GetParameter'"></h1>
+    <a th:href="@{test1?data1=100&data2=200&data3=300}">Get Parameter_HttpServletRequest</a><br>
+    <a th:href="@{test2?data1=100&data2=200&data3=300&data3=400}">Get Parameter_HttpServletRequest2</a><br>
+</body>
+</html>

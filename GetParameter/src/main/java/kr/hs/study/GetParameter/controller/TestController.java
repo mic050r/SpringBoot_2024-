@@ -3,6 +3,7 @@ package kr.hs.study.GetParameter.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.context.request.WebRequest;
 
 @Controller
@@ -37,6 +38,16 @@ public class TestController {
 
         for(String s : d3) System.out.println(s);
 
+        return "result";
+    }
+
+    @GetMapping("test4/{data1}/{data2}/{data3}")
+    public String test(@PathVariable("data1") int data1,
+                       @PathVariable("data2") int data2,
+                       @PathVariable("data3") int data3) {
+        System.out.println("data1 : " + data1);
+        int sum = data1+data2+data3;
+        System.out.println("int :" + sum);
         return "result";
     }
 }

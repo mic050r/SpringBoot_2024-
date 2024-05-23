@@ -3,6 +3,7 @@ package kr.hs.study.GetParameter.controller;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.context.request.WebRequest;
 
 @Controller
 public class TestController {
@@ -21,6 +22,16 @@ public class TestController {
 
     @GetMapping("/test2")
     public String test2(HttpServletRequest http) {
+        String d1 = http.getParameter("data1"); // 단일 값 가져오기
+        String d3[] = http.getParameterValues("data3"); // 배열 값 가져오기
+
+        for(String s : d3) System.out.println(s);
+
+        return "result";
+    }
+
+    @GetMapping("/test3")
+    public String test3(WebRequest http) {
         String d1 = http.getParameter("data1"); // 단일 값 가져오기
         String d3[] = http.getParameterValues("data3"); // 배열 값 가져오기
 

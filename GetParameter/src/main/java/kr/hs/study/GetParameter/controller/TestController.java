@@ -4,6 +4,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.web.context.request.WebRequest;
 
 @Controller
@@ -48,6 +50,21 @@ public class TestController {
         System.out.println("data1 : " + data1);
         int sum = data1+data2+data3;
         System.out.println("int :" + sum);
+        return "result";
+    }
+
+    @GetMapping("test5")
+    public String test(@RequestParam("data1") String data1,
+                       @RequestParam("data2") String data2,
+                       @RequestParam("data3") String[] data3,
+                        @RequestParam(value = "data4", required = false, defaultValue = "initial") String data4) {
+        // required = false : 값이 없을 때 자동으로 null을 넣어줌
+        // defaultValue="22" : 초기값을 지정해줌
+        for(String s : data3) {
+            System.out.println("data3 : " + s);
+        }
+
+        System.out.println("data4 : " + data4);
         return "result";
     }
 }

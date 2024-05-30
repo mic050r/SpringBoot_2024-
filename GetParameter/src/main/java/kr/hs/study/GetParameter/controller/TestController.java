@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.annotation.RequestScope;
 import org.springframework.web.context.request.WebRequest;
@@ -43,7 +44,7 @@ public class TestController {
         return "result";
     }
 
-    @GetMapping("test4/{data1}/{data2}/{data3}")
+    @GetMapping("/test4/{data1}/{data2}/{data3}")
     public String test(@PathVariable("data1") int data1,
                        @PathVariable("data2") int data2,
                        @PathVariable("data3") int data3) {
@@ -53,7 +54,7 @@ public class TestController {
         return "result";
     }
 
-    @GetMapping("test5")
+    @GetMapping("/test5")
     public String test(@RequestParam("data1") String data1,
                        @RequestParam("data2") String data2,
                        @RequestParam("data3") String[] data3,
@@ -66,5 +67,13 @@ public class TestController {
 
         System.out.println("data4 : " + data4);
         return "result";
+    }
+
+    @PostMapping("/form")
+    public String form(@RequestParam("id") String id,
+                       @RequestParam("name") String name,
+                       @RequestParam("email") String email) {
+        System.out.println("id : " + id + ", name : " + name + ", email : " + email);
+        return "index";
     }
 }

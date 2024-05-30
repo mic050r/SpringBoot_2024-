@@ -10,6 +10,13 @@
     <a th:href="@{test2?data1=100&data2=200&data3=300&data3=400}">Get Parameter_HttpServletRequest2</a><br>
     <a th:href="@{test3?data1=100&data2=200&data3=300&data3=400}">Get Parameter_WebRequest</a><br>
     <a th:href="@{test4/100/200/300}">Get @PathVariable</a><br>
-    <a th:href="@{test5?data1=100&data2=200&data3=300&data3=400}">Get @RequestParam</a><br>
+    <a th:href="@{test5?data1=100&data2=200&data3=300&data3=400}">Get @RequestParam</a> <br>
+
+    <form action="/form" method="post">
+        <labl>아이디 : </labl><input type="text" name="id"> <br>
+        <labl>이름 : </labl><input type="text" name="name"> <br>
+        <labl>이메일 : </labl><input type="text" name="email"> <br>
+        <button type="submit">Send</button>
+    </form>
 </body>
 </html>

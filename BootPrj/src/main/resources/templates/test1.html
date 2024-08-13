@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
+<body>
+<h1>Welcome!!!!</h1>
+<form action="/test1" method="post">
+    수 입력하기 <input type="number" id="num" name="num">
+    <button type="submit">전송하기</button>
+</form>
+<div th:if="${result}">
+    <p th:text="${result}"></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* 전체적인 페이지 레이아웃 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+
+        /* 테이블 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+        }
+
+        table, th, td {
+            border: 1px solid #dddddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* 링크 및 버튼 스타일 */
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        a:visited {
+            color: #0056b3;
+        }
+
+        /* 추가하기 버튼 스타일 */
+        a[href*="/add"] {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        a[href*="/add"]:hover {
+            background-color: #218838;
+        }
+
+    </style>
+</head>
+<body>
+<h1>목록보기</h1>
+<table>
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Etc</td>
+    </tr>
+    <tr th:each="item:${listA}">
+        <td><a th:href="@{'/read/' + ${item.id}}"><span th:text="${item.id}"></span></a></td>
+        <td th:text="${item.name}"></td>
+        <td><a th:href="@{'/edit/' + ${item.id}}">수정</a> <a th:href="@{'/delete/' + ${item.id}}">삭제</a> </td>
+    </tr>
+</table>
+
+<a th:href="@{/add}">추가하기</a>
+</body>
+</html>

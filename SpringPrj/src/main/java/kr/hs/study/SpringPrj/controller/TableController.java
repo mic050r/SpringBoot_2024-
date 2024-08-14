@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class TestController {
+public class TableController {
 
     @GetMapping("/table")
     public String table() {

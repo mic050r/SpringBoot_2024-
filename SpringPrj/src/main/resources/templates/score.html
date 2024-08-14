@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- menuFragment 불러오기 -->
+<th:block th:replace="fragments/menu ::menuFragment"></th:block>
+
+<form action="/score" method="post">
+    이름 : <input type="text" name="name"> <br>
+    국어 : <input type="text" name="kor"> <br>
+    영어 : <input type="text" name="eng"> <br>
+    수학 : <input type="text" name="math"> <br>
+    <button type="submit">입력 완료</button>
+</form>
+
+<div th:if="${result}">
+    <h2>Score Result</h2>
+    <p>이름 : <span th:text="${result.name}"></span></p> <br>
+    <p>국어 : <span th:text="${result.kor}"></span></p><br>
+    <p>영어 : <span th:text="${result.eng}"></span></p><br>
+    <p>수학 : <span th:text="${result.math}"></span></p><br>
+    <p>총점 : <span th:text="${sum}"></span></p><br>
+    <p>평균 : <span th:text="${avg}"></span></p><br>
+</div>
+</body>
+</html>

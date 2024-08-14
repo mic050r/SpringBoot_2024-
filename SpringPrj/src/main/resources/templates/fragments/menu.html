@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- block 친 구간을 menuFragment 라는 이름으로 지정 -->
+<th:block th:fragment="menuFragment">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+    <a th:href="@{/}">홈 | </a>
+    <a th:href="@{/table}">구구단 | </a>
+    <a th:href="@{/score}">성적 | </a>
+    <a th:href="@{/memo}">메모장 | </a>
+    </body>
+</th:block>
+</html>

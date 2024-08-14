@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- menuFragment 불러오기 -->
+<th:block th:replace="fragments/menu ::menuFragment"></th:block>
+
+<form action="/table" method="post">
+    단을 입력해주세요 :
+    <input type="text" name="num">
+    <button type="submit">입력 완료</button>
+</form>
+
+<div th:if="${result}">
+    <p th:text="${result}"></p>
+</div>
+</body>
+</html>

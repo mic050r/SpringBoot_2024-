@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>메모</title>
+</head>
+<body>
+<!-- menuFragment 불러오기 -->
+<th:block th:replace="fragments/menu ::menuFragment"></th:block>
+
+<form action="/memo" method="post">
+  Writer : <input type="text" name="writer"> <br>
+  Contents : <textarea name="contents" rows="5" cols="40"></textarea> <br>
+  <button type="submit">입력 완료</button>
+</form>
+
+<div th:if="${result}">
+  <p>이름 : <span th:text="${result.writer}"></span></p>
+  <p>내용 : <span th:text="${result.contents}"></span></p>
+</div>
+</body>
+</html>

@@ -1,15 +1,19 @@
 package kr.hs.study.SpringPrj.memo.contoller;
 
-import kr.hs.study.SpringPrj.memo.dto.MemoReq;
+import kr.hs.study.SpringPrj.memo.dto.MemoDTO;
+import kr.hs.study.SpringPrj.memo.service.memoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MemoController {
+
+    @Autowired
+    private memoService memoService;
 
     @GetMapping("/memo")
     public String memo() {
@@ -17,8 +21,9 @@ public class MemoController {
     }
 
     @PostMapping("/memo")
-    public String memo(@ModelAttribute MemoReq memoReq, Model model) {
-        model.addAttribute("result", memoReq);
+    public String memo(@ModelAttribute MemoDTO memoDTO, Model model) {
+        memoService.insert(memoDTO);
+        model.addAttribute("result", memoDTO);
         return "./memo/memo";
     }
 }

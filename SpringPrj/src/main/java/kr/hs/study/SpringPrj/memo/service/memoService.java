@@ -3,6 +3,8 @@ package kr.hs.study.SpringPrj.memo.service;
 import kr.hs.study.SpringPrj.memo.dto.MemoDTO;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public interface memoService {
     /*
@@ -12,6 +14,9 @@ public interface memoService {
 
     // insert
     public void insert(MemoDTO memoDTO);
+
+    // select
+    public List<MemoDTO> listAll();
 
     // update
     public void update(MemoDTO memoDTO);

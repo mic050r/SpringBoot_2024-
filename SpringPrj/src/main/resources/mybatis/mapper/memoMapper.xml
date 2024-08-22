@@ -8,4 +8,7 @@
         insert into memo(id, writer, contents, regDate) values(seq_id.nextval, #{writer}, #{contents}, sysdate)
     </insert>
 
+    <select id="listAll" resultType="kr.hs.study.SpringPrj.memo.dto.MemoDTO">
+        select * from memo order by id desc
+    </select>
 </mapper>

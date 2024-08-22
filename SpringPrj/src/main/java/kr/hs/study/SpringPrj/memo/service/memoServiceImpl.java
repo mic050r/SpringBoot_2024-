@@ -5,6 +5,8 @@ import kr.hs.study.SpringPrj.memo.dto.MemoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class memoServiceImpl implements memoService {
 
@@ -14,6 +16,11 @@ public class memoServiceImpl implements memoService {
     @Override
     public void insert(MemoDTO memoDTO) {
         mapper.insert(memoDTO);
+    }
+
+    @Override
+    public List<MemoDTO> listAll() {
+        return mapper.listAll();
     }
 
     @Override
